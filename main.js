@@ -8,6 +8,10 @@ function ShowImage() {
     img.src = "bird.png"
     img.classList.add("picture")
     document.addEventListener("click",()=>{
+        const el = document.querySelector('.container_click')
+        el.style.display = 'block'
+        setTimeout( () => {el.style.display = 'none'},1000)
+
         //TODO: ONE TIME IN A BIRD
         if (bird) {
             bird = false;
@@ -58,7 +62,7 @@ Clicker()
             console.log(mediana);
             let flag = true;
             for (let i = 3; i < goodData.length; i += 1) {
-                if (Math.abs(goodData[i]-mediana) >=100){
+                if (Math.abs(goodData[i]-mediana) >=1000){
                     flag = false;
                 }
             }
@@ -93,10 +97,5 @@ Clicker()
             else {
                 console.log('ты ебаный даун');
             }
-
-
-
-
-
         }
     )

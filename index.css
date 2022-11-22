@@ -13,7 +13,20 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: black;
+    background-image: url("bg_main.jpg");
+    position: relative;
+    z-index: 1;
+}
+.container_click{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    box-shadow: 0px 0px 250px #0bff76;
+    position: fixed;
+    z-index: 999;
+    display: none;
 }
 
 #wrapper {
@@ -24,8 +37,9 @@
     bottom: 0;
     left: 0;
     z-index: 999;
-    background: #bbafaf;
+    background-image: url("bg_main.jpg");
 }
+
 .chart{
     width: 60%;
     height: 60%;
@@ -33,6 +47,9 @@
     margin-right: auto ;
     display: flex;
     align-items: center;
-
+    background: linear-gradient(86.16deg, rgba(255, 255, 255, 0.144) 11.14%, rgba(255, 255, 255, 0.0252) 113.29%);
+    border-radius: 29px;
+    padding: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.38);
 
 }
