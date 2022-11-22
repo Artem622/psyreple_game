@@ -37,14 +37,11 @@ function Clicker() {
                     resolve({TimestampClick})
                 }, 1000);
             }
-        }, 5000)
+        }, 3000)
     }));
 
 
-// }
-// //delete
-// const makeUniq = (arr) => {
-//     return arr.filter((el, id) => arr.indexOf(el) === id);
+
 }
 
 Clicker()
@@ -52,39 +49,54 @@ Clicker()
         data => {
             //TODO: Show graphic
             const goodData = data.TimestampClick.map((el, key) => {
-                return el - 5000 * key;
+                return el - 3000 * key;
             })
             console.log(goodData);
-                // window.open("/home/artemk/WebstormProjects/untitled1/index.html")
-                //TODO:  условие на адекватность
-                const el = document.querySelector('#wrapper')
-                el.style.display = 'block'
-            new Chart(document.getElementById("line-chart"), {
-                type: 'line',
-                data: {
-                    labels: [1,2,3,4,5,6,7],
-                    datasets: [{
-                        data: [goodData[3],goodData[4],goodData[5],goodData[6],goodData[7],goodData[8],goodData[9]],
-                        label: "время реакции в милисекундах",
-                        borderColor: "#c1a20c",
-                        fill: false
-                    }
-                    ]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Твои лучшие попытки',
 
-                    }
+            //TODO:  условие на адекватность
+            var mediana = goodData[6];
+            console.log(mediana);
+            let flag = true;
+            for (let i = 3; i < goodData.length; i += 1) {
+                if (Math.abs(goodData[i]-mediana) >=100){
+                    flag = false;
                 }
-            });
+            }
+            const el = document.querySelector('#wrapper')
+            el.style.display = 'block'
 
-// Themes begin
+            if (flag == true){
+                //TODO: grafic
+                new Chart(document.getElementById("line-chart"), {
+                    type: 'line',
+                    data: {
+                        labels: [1,2,3,4,5,6,7],
+                        datasets: [{
+                            data: [goodData[3],goodData[4],goodData[5],goodData[6],goodData[7],goodData[8],goodData[9]],
+                            label: "время реакции в милисекундах",
+                            borderColor: "#c10c8e",
+                            fill: false
 
-// Themes end
+                        }
+                        ]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: 'Твои лучшие попытки',
 
-// Create chart instance
+                        }
+                    }
+
+                });
+            }
+            else {
+                console.log('ты ебаный даун');
+            }
+
+
+
+
 
         }
     )
