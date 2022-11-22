@@ -41,8 +41,8 @@
 }
 
 .chart{
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: auto;
     margin-left: auto;
     margin-right: auto ;
     display: flex;
@@ -51,5 +51,12 @@
     border-radius: 29px;
     padding: 30px;
     border: 2px solid rgba(255, 255, 255, 0.38);
+    position: absolute;
+    top: 25vh;
 
+}
+.graf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

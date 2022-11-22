@@ -79,10 +79,11 @@ Clicker()
                             data: [goodData[3],goodData[4],goodData[5],goodData[6],goodData[7],goodData[8],goodData[9]],
                             label: "время реакции в милисекундах",
                             borderColor: "#c10c8e",
-                            fill: false
+                            fill: false,
+                            backgroundColor: "#0bff76",
 
-                        }
-                        ]
+                        }]
+
                     },
                     options: {
                         title: {
@@ -91,7 +92,6 @@ Clicker()
 
                         }
                     }
-
                 });
             }
             else {
