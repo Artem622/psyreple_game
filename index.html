@@ -10,19 +10,53 @@
     />
 </head>
 <body>
-<div class="container"></div>
-
-<div id="wrapper">
-    <div class="graf">
-        <div class="chart">
-            <canvas id="line-chart"> </canvas>
+    <div class="mainbody" >
+        <div class="main" id="mainpage">
+            <img class="psy_picture" src="psy.png">
+            <hr>
+            <h2 class ="big_text">Суть теста</h2>
+            <p class="small_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis eligendi quas sunt unde! A commodi consequatur delectus ducimus maiores natus nihil non nostrum nulla sunt? Magni minus quos sed. </p>
+            <h2 class ="big_text ">Правила теста</h2>
+            <p class="small_text">
+                1. На экране будет появляться птичка (очень быстро)<br>
+                2. Ваша задача - кликнуть по экрану в любом месте, как только увидели птичку<br>
+                3. Мы зафиксируем скорость вашей реакции<br>
+                4. В конце теста вы увидите свои результаты
+            </p>
+            <a type="submit" id="submit" class="gradient-button">Начать тестирование</a>
         </div>
-
     </div>
-</div>
-<div class="container_click animate__animated animate__fadeIn animate__fadeOut"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<script src = "index.js"></script>
+    <div class="container"></div>
+
+    <div class="container_click animate__animated animate__fadeIn animate__fadeOut" ></div>
+    <div id="wrapper">
+        <div class="graf">
+            <img class="psy_picture" src="psy.png">
+            <h2 class ="big_text_graf">Ваш текущий результат</h2>
+            <p id="meaning" class="small_text_graf"> <div class="small_text_graf" id="average"></div> </p>
+            <canvas id="line-chart"> </canvas>
+            <h2 class ="big_text">Расшифровка</h2>
+            <p class="small_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis eligendi quas sunt unde! A commodi consequatur delectus ducimus maiores natus nihil non nostrum nulla sunt? Magni minus quos sed. </p>
+            <a type="success_1" id="success_1" class="gradient-button">кнопка 1</a>
+
+        </div>
+    </div>
+
+    <div class="main_after_test">
+        <div class="after_test">
+            <img class="psy_picture" src="psy.png">
+            <h2 class ="big_text">Ваш тест признан недействительным</h2>
+            <p class="small_text">
+                1. У вас все заебись, но идите нахуй <br>
+                2. <br>
+                3. <br>
+                4.
+            </p>
+            <a type="losetry" id="losetry" class="gradient-button">Пройти еще раз</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src = "main.js"></script>
 
 </body>
 
