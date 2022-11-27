@@ -78,7 +78,7 @@ document.querySelector("#submit").onclick = function(){
                 var meaning = Math.floor((goodData.map(i => x += i, x = 0).reverse()[0])/goodData.length);
                 console.log(goodData)
                 console.log(meaning)
-                let hr = 'https://results.psyreply.com' + '?id=' + uid
+                let hr = '"' + 'https://results.psyreply.com' + '?id=' + uid + '"'
                 axios.post("https://hook.eu1.make.com/od2wlwkp3peiuwzphod9h4u4ninu3dp4", {
                     result: meaning,
                     uid: uid,
@@ -87,7 +87,7 @@ document.querySelector("#submit").onclick = function(){
                 }).catch(err => {
                    console.error(err)
                 })
-
+                window.open(hr)
             }
 
 
