@@ -78,16 +78,7 @@ document.querySelector("#submit").onclick = function(){
                 var meaning = Math.floor((goodData.map(i => x += i, x = 0).reverse()[0])/goodData.length);
                 console.log(goodData)
                 console.log(meaning)
-                let hr = `https://results.psyreply.com?id=${uid}`
-                axios.post("https://hook.eu1.make.com/od2wlwkp3peiuwzphod9h4u4ninu3dp4", {
-                    result: meaning,
-                    uid: uid,
-                }).then(res => {
-                    console.log(res)
-                }).catch(err => {
-                    console.error(err)
-                })
-                console.log(goodData);
+
 
                 //TODO:  условие на адекватность
                 var mediana = goodData[6];
@@ -110,6 +101,7 @@ document.querySelector("#submit").onclick = function(){
                     location.reload()
                 }
                 if (flag == true && goodData.length >= 0){
+
                     //TODO: grafic
                     new Chart(document.getElementById("line-chart"), {
                         type: 'line',
@@ -133,6 +125,15 @@ document.querySelector("#submit").onclick = function(){
                             }
                         }
                     });
+                    axios.post("https://hook.eu1.make.com/od2wlwkp3peiuwzphod9h4u4ninu3dp4", {
+                        result: meaning,
+                        uid: uid,
+                    }).then(res => {
+                        console.log(res)
+                    }).catch(err => {
+                        console.error(err)
+                    })
+                    console.log(goodData);
                 }
                 else {
                     document.querySelector('.main_after_test').style.display = "flex";
