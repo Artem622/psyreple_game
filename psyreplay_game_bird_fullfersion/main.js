@@ -96,7 +96,7 @@ document.querySelector("#submit").onclick = function(){
                 document.querySelector(".graf").style.display = "flex";
                 document.querySelector(".container_click").style.height = "0vh" ;
                 document.querySelector(".container_click").style.width = "0vh" ;
-                document.getElementById("average").innerHTML = average;
+                document.getElementById("average").innerHTML = meaning;
                 document.querySelector("#success_1").onclick = function(){
                     location.reload()
                 }
@@ -106,9 +106,9 @@ document.querySelector("#submit").onclick = function(){
                     new Chart(document.getElementById("line-chart"), {
                         type: 'line',
                         data: {
-                            labels: [1,2,3,4,5,6,7],
+                            labels: [1,2,3,4,5],
                             datasets: [{
-                                data: [goodData[3],goodData[4],goodData[5],goodData[6],goodData[7],goodData[8],goodData[9]],
+                                data: [goodData[0],goodData[1],goodData[2],goodData[3],goodData[4]],
                                 label: "время реакции в милисекундах",
                                 borderColor: "#c10c8e",
                                 fill: false,
