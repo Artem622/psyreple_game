@@ -1,6 +1,13 @@
 const TimestampClick = []
 let bird = false;
 // bird on screen
+const query = window.location.href.split("?");
+
+if (query.length > 1) {
+    const uid = query[1].split('=')[1];
+    localStorage.setItem('uid', uid);
+    window.location = "/";
+}
 function ShowImage() {
 
     bird = true;
@@ -71,8 +78,10 @@ document.querySelector("#submit").onclick = function(){
                 var meaning = Math.floor((goodData.map(i => x += i, x = 0).reverse()[0])/goodData.length);
                 console.log(goodData)
                 console.log(meaning)
+
                 axios.post("https://hook.eu1.make.com/od2wlwkp3peiuwzphod9h4u4ninu3dp4", {
-                   result: meaning,
+                    result: meaning,
+                    id: uid,
                 }).then(res => {
                    console.log(res)
                 }).catch(err => {
