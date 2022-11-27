@@ -1,11 +1,11 @@
 const TimestampClick = []
 let bird = false;
+let uid = parseInt(localStorage.getItem('uid'))
 // bird on screen
 const query = window.location.href.split("?");
-
 if (query.length > 1) {
-    const uid = query[1].split('=')[1];
-    localStorage.setItem('uid', uid);
+    uid = parseInt(query[1].split('=')[1])
+    localStorage.setItem('uid',uid)
     window.location = "/";
 }
 function ShowImage() {
@@ -78,16 +78,19 @@ document.querySelector("#submit").onclick = function(){
                 var meaning = Math.floor((goodData.map(i => x += i, x = 0).reverse()[0])/goodData.length);
                 console.log(goodData)
                 console.log(meaning)
-
+                let hr = 'https://results.psyreply.com' + '?id=' + uid
                 axios.post("https://hook.eu1.make.com/od2wlwkp3peiuwzphod9h4u4ninu3dp4", {
                     result: meaning,
-                    id: uid,
+                    uid: uid,
                 }).then(res => {
                    console.log(res)
                 }).catch(err => {
                    console.error(err)
                 })
+
             }
+
+
             )
 }
 
