@@ -81,12 +81,12 @@ document.querySelector("#submit").onclick = function(){
 
 
                 //TODO:  условие на адекватность
-                var mediana = goodData[6];
+                var mediana = goodData[1];
                 var average = Math.floor((goodData[3] + goodData[4] + goodData[5] + goodData[6] + goodData[7] + goodData[8] + goodData[9]) /7)
                 console.log(mediana);
                 let flag = true;
                 for (let i = 3; i < goodData.length; i += 1) {
-                    if (Math.abs(goodData[i]-mediana) >=3000){
+                    if (Math.abs(goodData[i]-mediana) <=3000){
                         flag = false;
                     }
                 }
@@ -100,7 +100,7 @@ document.querySelector("#submit").onclick = function(){
                 document.querySelector("#success_1").onclick = function(){
                     location.reload()
                 }
-                if (flag == true && goodData.length >= 0){
+                if (goodData.length >= 0){
 
                     //TODO: grafic
                     new Chart(document.getElementById("line-chart"), {
