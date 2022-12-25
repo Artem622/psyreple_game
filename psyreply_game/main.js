@@ -1,5 +1,6 @@
 const TimestampClick = []
 let bird = false;
+// bird on screen
 let uid = parseInt(localStorage.getItem('uid'))
 // bird on screen
 const query = window.location.href.split("?");
@@ -70,35 +71,83 @@ document.querySelector("#submit").onclick = function(){
     Clicker()
         .then(
             data => {
-                //TODO: POST req
-
+                //TODO: Show graphic
                 const goodData = data.TimestampClick.map((el, key) => {
                     return el - 3000 * key;
                 })
                 var meaning = Math.floor((goodData.map(i => x += i, x = 0).reverse()[0])/goodData.length);
                 console.log(goodData)
                 console.log(meaning)
-                let hr = `https://results.psyreply.com?id=${uid}`
-                axios.post("https://hook.eu1.make.com/od2wlwkp3peiuwzphod9h4u4ninu3dp4", {
-                    result: meaning,
-                    uid: uid,
-                }).then(res => {
-                   console.log(res)
-                }).catch(err => {
-                   console.error(err)
-                })
-                window.location = hr;
+
+
+                //TODO:  условие на адекватность
+                var mediana = goodData[1];
+                var average = Math.floor((goodData[3] + goodData[4] + goodData[5] + goodData[6] + goodData[7] + goodData[8] + goodData[9]) /7)
+                console.log(mediana);
+                let flag = true;
+                for (let i = 3; i < goodData.length; i += 1) {
+                    if (Math.abs(goodData[i]-mediana) <=3000){
+                        flag = false;
+                    }
+                }
+                const el = document.querySelector('#wrapper')
+                el.style.display = 'flex'
+                document.querySelector(".container").style.display = "none";
+                document.querySelector(".graf").style.display = "flex";
+                document.querySelector(".container_click").style.height = "0vh" ;
+                document.querySelector(".container_click").style.width = "0vh" ;
+                document.getElementById("average").innerHTML = meaning;
+                document.querySelector("#success_1").onclick = function(){
+                    location.reload()
+                }
+                if (goodData.length >= 0){
+
+                    //TODO: grafic
+                    new Chart(document.getElementById("line-chart"), {
+                        type: 'line',
+                        data: {
+                            labels: [1,2,3,4,5],
+                            datasets: [{
+                                data: [goodData[0],goodData[1],goodData[2],goodData[3],goodData[4]],
+                                label: "время реакции в милисекундах",
+                                borderColor: "#c10c8e",
+                                fill: false,
+                                backgroundColor: "#0bff76",
+
+                            }]
+
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Твои лучшие попытки',
+
+                            }
+                        }
+                    });
+                    axios.post("https://hook.eu1.make.com/od2wlwkp3peiuwzphod9h4u4ninu3dp4", {
+                        result: meaning,
+                        uid: uid,
+                    }).then(res => {
+                        console.log(res)
+                    }).catch(err => {
+                        console.error(err)
+                    })
+                    console.log(goodData);
+                }
+                else {
+                    document.querySelector('.main_after_test').style.display = "flex";
+                    document.querySelector(".container").style.display = "none";
+                    document.querySelector("#wrapper").style.display = "none";
+                    document.querySelector(".graf").style.display = "none";
+                    document.querySelector(".container_click").style.display = "none";
+                    document.querySelector(".container_click").style.height = "0vh" ;
+                    document.querySelector(".container_click").style.width = "0vh" ;
+                    document.querySelector("#losetry").onclick = function(){
+                        location.reload()
+                    }
+
+                }
             }
-
-
-            )
+        )
 }
-
-
-
-
-
-
-
-
-

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PsyReply Game</title>
     <link rel="stylesheet" href="index.css">
     <link
@@ -21,8 +22,7 @@
                 1. На экране будет появляться птичка (очень быстро)<br>
                 2. Ваша задача - кликнуть по экрану в любом месте, как только увидели птичку<br>
                 3. Мы зафиксируем скорость вашей реакции<br>
-                4. В конце теста вы увидите свои результаты<br>
-                5. Для комфортной игры свайпните вверх
+                4. В конце теста вы увидите свои результаты
             </p>
             <a type="submit" id="submit" class="gradient-button">Начать</a>
         </div>
@@ -37,8 +37,8 @@
             <p id="meaning" class="small_text_graf"> <div class="small_text_graf" id="average"></div> </p>
             <canvas id="line-chart"> </canvas>
             <h2 class ="big_text">Расшифровка</h2>
-            <p class="small_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias debitis eligendi quas sunt unde! A commodi consequatur delectus ducimus maiores natus nihil non nostrum nulla sunt? Magni minus quos sed. </p>
-            <a type="success_1" id="success_1" class="gradient-button">кнопка 1</a>
+            <p class="small_text">Мы измерили скорость вашей реакции и сравним ее с результатами тестов, для их корректировки</p>
+            <a type="success_1" id="success_1" class="gradient-button">пройти еще раз</a>
 
         </div>
     </div>
@@ -48,16 +48,14 @@
             <img class="psy_picture" src="psy.png">
             <h2 class ="big_text">Ваш тест признан недействительным</h2>
             <p class="small_text">
-                1. У вас все заебись, но идите нахуй <br>
-                2. <br>
-                3. <br>
-                4.
+                1. Перепройдите тест <br>
+
             </p>
             <a type="losetry" id="losetry" class="gradient-button">Пройти еще раз</a>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js" integrity="sha512-OdkysyYNjK4CZHgB+dkw9xQp66hZ9TLqmS2vXaBrftfyJeduVhyy1cOfoxiKdi4/bfgpco6REu6Rb+V2oVIRWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js" integrity="sha512-OdkysyYNjK4CZHgB+dkw9xQp66hZ9TLqmS2vXaBrftfyJeduVhyy1cOfoxiKdi4/bfgpco6REu6Rb+V2oVIRWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src = "main.js"></script>
 
 </body>
